@@ -3,50 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 19</title>
+  <title>All Tasks</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f9f9f9;
-      padding: 30px;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background-color: white;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-    h1 { color: #4CAF50; }
+    h1 { text-align: center; color: #4CAF50; }
+
+    .task {
+      background-color: #f0f0f0;
+      margin: 10px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .task-header {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .task-header:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .task-content {
+      display: none;
+      padding: 15px 20px;
+      background-color: white;
+    }
+
     pre {
       background: #eee;
       padding: 15px;
       border-radius: 8px;
       overflow-x: auto;
-      margin-top: 15px;
     }
-    a.back {
-      display: inline-block;
-      margin-top: 20px;
-      color: #4CAF50;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a.back:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Task 19</h1>
-    <p>Бұл жерде Task 19 туралы қысқаша сипаттама немесе код болады.</p>
-    <pre>
-// Мысалы, кейбір код осында
-function task19Example() {
-  console.log("This is Task 19 code");
-}
-    </pre>
-    <a href="index.html" class="back">← Back to Tasks</a>
+  <h1>All Tasks</h1>
+
+  <!-- Task 1 -->
+  <div class="task">
+    <div class="task-header">Task 1: Reverse Words</div>
+    <div class="task-content">
+      <p>Type a sentence below and click "Reverse Words" to see the result:</p>
+      <input type="text" id="sentence1" placeholder="Type your sentence..." size="50">
+      <button onclick="reverseWords('sentence1','result1')">Reverse Words</button>
+      <pre id="result1"></pre>
+    </div>
   </div>
+
+  <!-- Task 2 -->
+  <div class="task">
+    <div class="task-header">Task 2</div>
+    <div class="task-content">
+      <p>Task 2 description or code here...</p>
+      <pre>// Example code for Task 2
+console.log("Task 2 code");</pre>
+    </div>
+  </div>
+
+  <!-- Task 3 -->
+  <div class="task">
+    <div class="task-header">Task 3</div>
+    <div class="task-content">
+      <p>Task 3 description or code here...</p>
+      <pre>// Example code for Task 3
+console.log("Task 3 code");</pre>
+    </div>
+  </div>
+
+  <!-- Repeat similarly for Tasks 4 to 20 -->
+  <!-- You can duplicate the above block and just change IDs and titles -->
+
+  <script>
+    // Toggle task content
+    const headers = document.querySelectorAll('.task-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // Reverse words function
+    function reverseWords(inputId, resultId) {
+      const input = document.getElementById(inputId).value;
+      const reversed = input.split(' ').reverse().join(' ');
+      document.getElementById(resultId).textContent = reversed;
+    }
+  </script>
 </body>
 </html>
